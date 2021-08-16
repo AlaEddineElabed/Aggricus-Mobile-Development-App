@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/ic_google_background.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/ic_twitter_background.xml" value="0.140625" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/activity_about_us.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/activity_main2.xml" value="0.2" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/card_item.xml" value="0.264" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/fragment_aboutus.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/fragment_bestsellers.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/nav_header.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/slider_item.xml" value="0.128125" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/taj.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileJava/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileJava/app/src/main/res/drawable/ic_XX_background.xml" value="0.2703125" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileJava/app/src/main/res/drawable/ic_X_background.xml" value="0.2703125" />

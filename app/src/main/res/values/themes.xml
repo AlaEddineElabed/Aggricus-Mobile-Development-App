@@ -2,12 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.MobileJava" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
+        <item name="android:statusBarColor" >@color/black</item>
 
     </style>
-    <style name="Theme.MobileJava.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-    <style name="Theme.MobileJava.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="Theme.MobileJava.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="600dp"
     android:gravity="top"
+    android:id="@+id/nav_header"
     android:orientation="horizontal"
     android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
@@ -41,7 +42,8 @@
         android:layout_marginTop="52dp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_facebook_foreground" />
+        app:srcCompat="@mipmap/ic_facebook_foreground"
+        tools:ignore="OnClick,UsingOnClickInXml" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -144,7 +146,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="288dp"
         android:text="من نحن"
+
         android:textSize="18dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
