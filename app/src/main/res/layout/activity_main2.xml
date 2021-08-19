@@ -9,10 +9,14 @@
             tools:context=".Main2Activity"
 
             >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -63,6 +67,7 @@
                     android:layout_marginTop="92dp"
                     android:layout_marginEnd="28dp"
                     android:ems="10"
+                    android:background="@drawable/forget"
                     android:hint="@string/Search"
                     android:inputType="textPersonName"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -115,10 +120,10 @@
 
                 <com.smarteist.autoimageslider.SliderView
                     android:id="@+id/image_slider"
-                    android:layout_width="236dp"
-                    android:layout_height="103dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="88dp"
+                    android:layout_width="373dp"
+                    android:layout_height="294dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/button"
                     app:sliderAnimationDuration="1100"
@@ -141,8 +146,8 @@
                     android:id="@+id/viewerpage"
                     android:layout_width="388dp"
                     android:layout_height="351dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="4dp"
                     android:clipToPadding="false"
                     android:foregroundGravity="center"
                     android:overScrollMode="never"
@@ -151,7 +156,7 @@
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </ScrollView>
             <com.google.android.material.navigation.NavigationView
                 android:id="@+id/nav"
                 android:layout_width="wrap_content"

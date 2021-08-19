@@ -17,8 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.smarteist.autoimageslider.SliderView;
@@ -33,6 +35,8 @@ private ViewPager viewPager;
 private ArrayList<MyModel> modelArrayList;
 private CardViewAdapter adapter ;
 SliderView sliderView;
+
+
 int[]images={R.drawable.image1,R.drawable.image2,R.drawable.image3,R.drawable.image4};
 
 
@@ -44,10 +48,31 @@ int[]images={R.drawable.image1,R.drawable.image2,R.drawable.image3,R.drawable.im
         sliderView=findViewById(R.id.image_slider);
         SliderAdapter sliderAdapter = new SliderAdapter(images);
 
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav);
+        View headerview = navigationView.getHeaderView(0);
+        TextView profilename = (TextView) headerview.findViewById(R.id.textView5);
+        headerview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main2Activity.this,AboutUsActivity.class));
+            }
+        });
+
         sliderView.setSliderAdapter(sliderAdapter);
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.startAutoCycle();
+        ImageView img;
+        img=findViewById(R.id.imageView2);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)  {
+                startActivity(new Intent(Main2Activity.this,RegisterUser.class));
+            }
+        });
+
+
 
 
         viewPager=findViewById(R.id.viewerpage);
