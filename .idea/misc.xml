@@ -7,14 +7,18 @@
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/button.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/forget.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/header_bg.xml" value="0.13072916666666667" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/ic_camion_background.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/ic_google_background.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/drawable/ic_twitter_background.xml" value="0.140625" />
-        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/activity_about_us.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/activity_about_us.xml" value="0.264" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/activity_first_categorie_layout.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/activity_log_in.xml" value="0.24666666666666667" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/activity_main2.xml" value="0.2" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/card_item.xml" value="0.264" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/fragment_aboutus.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/fragment_bestsellers.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/login.xml" value="0.264" />
+        <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/most_viewed_card.xml" value="0.536" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/nav_header.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/register.xml" value="0.2" />
         <entry key="..\:/Users/AZIZ/AndroidStudioProjects/MobileAggricus/app/src/main/res/layout/slider_item.xml" value="0.128125" />
