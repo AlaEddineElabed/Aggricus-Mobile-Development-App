@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".SubscriptionActivity">
+
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="65dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgLikedItems"
+            app:layout_constraintEnd_toStartOf="@+id/imgLikedItems"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@android:drawable/ic_delete" />
+
+        <ImageView
+            android:id="@+id/imgLikedItems"
+            android:layout_width="34dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBasket"
+            app:layout_constraintEnd_toStartOf="@+id/imgBasket"
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+
+        <ImageView
+            android:id="@+id/imgBasket"
+            android:layout_width="31dp"
+            android:layout_height="29dp"
+            android:layout_marginEnd="44dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgMenu"
+            app:layout_constraintEnd_toStartOf="@+id/imgMenu"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+        <ImageView
+            android:id="@+id/imgMenu"
+            android:layout_width="53dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_menu_24" />
+
+
+        <EditText
+            android:id="@+id/edtSearchBar"
+            android:layout_width="319dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="@string/Search"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <SearchView
+            android:id="@+id/searchView2"
+            android:layout_width="38dp"
+            android:layout_height="39dp"
+            app:layout_constraintBottom_toBottomOf="@+id/edtSearchBar"
+            app:layout_constraintEnd_toStartOf="@+id/edtSearchBar"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/edtSearchBar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btnPacks"
+            android:layout_width="361dp"
+            android:layout_height="64dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/Btnaccueil"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/CardView1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/CardView1"
+            app:layout_constraintTop_toBottomOf="@+id/CardView1"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardView1"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtSearchBar"
+            app:cardCornerRadius="7dp">
+
+            <RelativeLayout
+                android:layout_width="361dp"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:id="@+id/collapsedLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnCategories"
+                        android:layout_width="361dp"
+                        android:layout_height="51dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/green"
+                        android:drawableLeft="@drawable/ic_baseline_menu_244"
+                        android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+                        android:text="@string/typebtn"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/expandableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/collapsedLayout"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/aromAndMedcPlants"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="النباتات العطرية و الطبية"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/handyCrafts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/aromAndMedcPlants"
+                        android:text="صناعات يدوية"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/craftProducts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/handyCrafts"
+                        android:text="منتوجات حرفية"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/handyCraftsRecView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnPacks" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

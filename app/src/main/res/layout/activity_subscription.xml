@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".SubscriptionActivity">
+
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="65dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgLikedItems"
+            app:layout_constraintEnd_toStartOf="@+id/imgLikedItems"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@android:drawable/ic_delete" />
+
+        <ImageView
+            android:id="@+id/imgLikedItems"
+            android:layout_width="34dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBasket"
+            app:layout_constraintEnd_toStartOf="@+id/imgBasket"
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+
+        <ImageView
+            android:id="@+id/imgBasket"
+            android:layout_width="31dp"
+            android:layout_height="29dp"
+            android:layout_marginEnd="44dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgMenu"
+            app:layout_constraintEnd_toStartOf="@+id/imgMenu"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+        <ImageView
+            android:id="@+id/imgMenu"
+            android:layout_width="53dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_menu_24" />
+
+
+        <EditText
+            android:id="@+id/edtSearchBar"
+            android:layout_width="319dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="@string/Search"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <SearchView
+            android:layout_width="38dp"
+            android:layout_height="39dp"
+            app:layout_constraintBottom_toBottomOf="@+id/edtSearchBar"
+            app:layout_constraintEnd_toStartOf="@+id/edtSearchBar"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/edtSearchBar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btnPacks"
+            android:layout_width="361dp"
+            android:layout_height="64dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/Btnaccueil"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/CardView1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/CardView1"
+            app:layout_constraintTop_toBottomOf="@+id/CardView1"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardView1"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtSearchBar"
+            app:cardCornerRadius="7dp">
+
+            <RelativeLayout
+                android:layout_width="361dp"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:id="@+id/collapsedLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnCategories"
+                        android:layout_width="361dp"
+                        android:layout_height="51dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/green"
+                        android:drawableLeft="@drawable/ic_baseline_menu_244"
+                        android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+                        android:text="@string/typebtn"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/expandableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/collapsedLayout"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/aromAndMedcPlants"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="النباتات العطرية و الطبية"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/handyCrafts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/aromAndMedcPlants"
+                        android:text="صناعات يدوية"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/craftProducts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/handyCrafts"
+                        android:text="منتوجات حرفية"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtSimpleSubs"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/green"
+            android:text="اشتراك عادي"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnPacks"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/btnPacks"
+            app:layout_constraintTop_toBottomOf="@+id/btnPacks" />
+
+        <TextView
+            android:id="@+id/txtPrice1"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="79 د.ت"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtSimpleSubs"
+            app:layout_constraintStart_toStartOf="@+id/txtSimpleSubs"
+            app:layout_constraintTop_toBottomOf="@+id/txtSimpleSubs" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="حجز متجر الكتروني"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txtPrice1"
+            app:layout_constraintStart_toStartOf="@+id/txtPrice1"
+            app:layout_constraintTop_toBottomOf="@+id/txtPrice1" />
+
+        <TextView
+            android:id="@+id/txt11"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="ملصقة اعلانية"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt1"
+            app:layout_constraintStart_toStartOf="@+id/txt1"
+            app:layout_constraintTop_toBottomOf="@+id/txt1" />
+
+        <TextView
+            android:id="@+id/txt111"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/strike_text1"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt11"
+            app:layout_constraintStart_toStartOf="@+id/txt11"
+            app:layout_constraintTop_toBottomOf="@+id/txt11" />
+
+        <TextView
+            android:id="@+id/txt1111"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/strike_text2"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt111"
+            app:layout_constraintStart_toStartOf="@+id/txt111"
+            app:layout_constraintTop_toBottomOf="@+id/txt111" />
+
+
+        <Button
+            android:id="@+id/btnRegister1"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:backgroundTint="@color/green1"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="@+id/txt1111"
+            app:layout_constraintStart_toStartOf="@+id/txt1111"
+            app:layout_constraintTop_toBottomOf="@+id/txt1111" />
+
+        <TextView
+            android:id="@+id/txtSimpleSubs2"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="150dp"
+            android:background="@color/green"
+            android:text="اشتراك بريميوم"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnRegister1"
+            app:layout_constraintStart_toStartOf="@+id/btnRegister1"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister1" />
+
+        <TextView
+            android:id="@+id/txtPrice2"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="199 د.ت"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtSimpleSubs2"
+            app:layout_constraintStart_toStartOf="@+id/txtSimpleSubs2"
+            app:layout_constraintTop_toBottomOf="@+id/txtSimpleSubs2" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="حجز متجر الكتروني"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txtPrice2"
+            app:layout_constraintStart_toStartOf="@+id/txtPrice2"
+            app:layout_constraintTop_toBottomOf="@+id/txtPrice2" />
+
+        <TextView
+            android:id="@+id/txt22"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="ملصقة اعلانية"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt2"
+            app:layout_constraintStart_toStartOf="@+id/txt2"
+            app:layout_constraintTop_toBottomOf="@+id/txt2" />
+
+        <TextView
+            android:id="@+id/txt222"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="فيد يو اعلا ني"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt22"
+            app:layout_constraintStart_toStartOf="@+id/txt22"
+            app:layout_constraintTop_toBottomOf="@+id/txt22" />
+
+        <TextView
+            android:id="@+id/txt2222"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/strike_text2"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt222"
+            app:layout_constraintStart_toStartOf="@+id/txt222"
+            app:layout_constraintTop_toBottomOf="@+id/txt222" />
+
+
+        <Button
+            android:id="@+id/btnRegister2"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:backgroundTint="@color/green1"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="@+id/txt2222"
+            app:layout_constraintStart_toStartOf="@+id/txt2222"
+            app:layout_constraintTop_toBottomOf="@+id/txt2222" />
+
+        <Button
+            android:id="@+id/btnRegister3"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:backgroundTint="@color/green1"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="@+id/txt3333"
+            app:layout_constraintStart_toStartOf="@+id/txt3333"
+            app:layout_constraintTop_toBottomOf="@+id/txt3333" />
+
+        <TextView
+            android:id="@+id/txtSimpleSubs3"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="150dp"
+            android:background="@color/green"
+            android:text="اشتراك احترافي"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnRegister2"
+            app:layout_constraintStart_toStartOf="@+id/btnRegister2"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister2" />
+
+        <TextView
+            android:id="@+id/txtPrice3"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="299 د.ت"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtSimpleSubs3"
+            app:layout_constraintStart_toStartOf="@+id/txtSimpleSubs3"
+            app:layout_constraintTop_toBottomOf="@+id/txtSimpleSubs3" />
+
+        <TextView
+            android:id="@+id/txt3"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="حجز متجر الكتروني"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txtPrice3"
+            app:layout_constraintStart_toStartOf="@+id/txtPrice3"
+            app:layout_constraintTop_toBottomOf="@+id/txtPrice3" />
+
+        <TextView
+            android:id="@+id/txt33"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="ملصقة اعلانية"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt3"
+            app:layout_constraintStart_toStartOf="@+id/txt3"
+            app:layout_constraintTop_toBottomOf="@+id/txt3" />
+
+        <TextView
+            android:id="@+id/txt333"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="فيد يو اعلا ني"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt33"
+            app:layout_constraintStart_toStartOf="@+id/txt33"
+            app:layout_constraintTop_toBottomOf="@+id/txt33" />
+
+        <TextView
+            android:id="@+id/txt3333"
+            android:layout_width="357dp"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="استشارة حول موقع تواصل اجتماعي"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/txt333"
+            app:layout_constraintStart_toStartOf="@+id/txt333"
+            app:layout_constraintTop_toBottomOf="@+id/txt333" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

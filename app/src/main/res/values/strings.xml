@@ -16,4 +16,8 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="strike_text1"><strike>فيد يو اعلا ني</strike></string>
+    <string name="strike_text2"><strike>استشارة حول موقع تواصل اجتماعي</strike></string>
+    <string name="register">تسجيل الاستمارة</string>
 </resources>

@@ -17,11 +17,11 @@ public class MostViewedHelperClass {
 
     }
 
-    public int getImageView() {
+    public int getImage() {
         return this.image;
     }
 
-    public String getTextView() {
+    public String getTitle() {
    return  this.title ;
     }
 

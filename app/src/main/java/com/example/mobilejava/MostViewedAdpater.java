@@ -30,8 +30,8 @@ public class MostViewedAdpater extends RecyclerView.Adapter<MostViewedAdpater.Mo
     public void onBindViewHolder(@NonNull MostViewedViewHolder holder, int position) {
         MostViewedHelperClass helperClass = mostViewedLocations.get(position);
 
-        holder.imageView.setImageResource(helperClass.getImageView());
-        holder.textView.setText(helperClass.getTextView());
+        holder.imageView.setImageResource(helperClass.getImage());
+        holder.textView.setText(helperClass.getTitle());
         holder.textView2.setText(helperClass.getDesc());
         holder.textView3.setText(helperClass.getPrice());
     }

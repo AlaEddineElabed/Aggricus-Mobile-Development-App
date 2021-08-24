@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileJava">
         <activity
+            android:name=".HandyCarftsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AromAndMedcPlantsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FormActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SubscriptionActivity"
+            android:exported="true" />
+        <activity
             android:name=".FirstCategorieLayout"
             android:exported="true" />
         <activity
