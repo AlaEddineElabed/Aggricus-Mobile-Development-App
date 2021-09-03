@@ -6,11 +6,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_xbtn"
+        android:icon="@drawable/logo2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_xbtn_round"
+        android:roundIcon="@drawable/logo2"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileJava">
+        <activity
+            android:name=".BestSellerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CraftProductsActivity"
+            android:exported="true" />
         <activity
             android:name=".HandyCarftsActivity"
             android:exported="true" />
@@ -22,9 +28,6 @@
             android:exported="true" />
         <activity
             android:name=".SubscriptionActivity"
-            android:exported="true" />
-        <activity
-            android:name=".FirstCategorieLayout"
             android:exported="true" />
         <activity
             android:name=".LogInActivity"

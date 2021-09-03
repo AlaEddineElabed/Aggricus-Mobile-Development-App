@@ -1,6 +1,8 @@
 package com.example.mobilejava;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -38,7 +40,7 @@ import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private ImageView imgLogo,imgMenu,imgLikedItems,imgBasket;
+    private ImageView imgLogo,imgMenu;
     private TextView aromAndMedcPlants, handyCrafts, craftProducts;
     private Button btnPacks,btnCategories;
     private RelativeLayout expandableLayout;
@@ -46,20 +48,24 @@ public class Main2Activity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private ViewPager viewPager2;
-    private ArrayList<MyModel> modelArrayList;
+    private ArrayList<MostViewedHelperClass> modelArrayList1;
     private CardViewAdapter adapter;
+    private CardViewAdapter2 adapter2;
     RecyclerView mostViewedRecycler;
     RecyclerView.Adapter adapterr;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
     SliderView sliderView;
 
 
-    int[] images = {R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4};
+    int[] images = {R.drawable.banner_1, R.drawable.banner_4, R.drawable.banner_5};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+
         setContentView(R.layout.activity_main2);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         sliderView = findViewById(R.id.image_slider);
@@ -69,10 +75,56 @@ public class Main2Activity extends AppCompatActivity {
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Main2Activity.this, FirstCategorieLayout.class));
+                startActivity(new Intent(Main2Activity.this, BestSellerActivity.class));
 
             }
         });
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav);
+        View headerview = navigationView.getHeaderView(0);
+        TextView aboutus = (TextView) headerview.findViewById(R.id.aboutUS);
+        TextView register = (TextView) headerview.findViewById(R.id.registertext);
+        TextView login = (TextView) headerview.findViewById(R.id.textView3);
+        TextView logout = (TextView) headerview.findViewById(R.id.logOut);
+        TextView HelloText = (TextView) headerview.findViewById(R.id.helloText);
+
+        if (mAuth.getInstance().getCurrentUser() != null){
+
+            register.setVisibility(View.GONE);
+            login.setVisibility(View.GONE);
+            logout.setVisibility(View.VISIBLE);
+            HelloText.setVisibility(View.VISIBLE);
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+
+            logout.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                }
+            },1000);
+
+            logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mAuth.signOut();
+                    Intent intent = new Intent(Main2Activity.this , Main2Activity.class);
+                    startActivity(intent);
+
+                }
+            });
+
+        }else {
+            register.setVisibility(View.VISIBLE);
+            login.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.GONE);
+            HelloText.setVisibility(View.GONE);
+
+
+        }
+
+
 
         InitializeViewsMA();
 
@@ -107,6 +159,26 @@ public class Main2Activity extends AppCompatActivity {
             }
 
         });
+
+
+        handyCrafts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main2Activity.this,HandyCarftsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        craftProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main2Activity.this,CraftProductsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
         Button outlinedButton;
         Button outlinedButton2;
         outlinedButton2 = findViewById(R.id.outlinedButton);
@@ -130,11 +202,6 @@ public class Main2Activity extends AppCompatActivity {
         mostViewedRecycler = findViewById(R.id.most_viewed_recycler);
         mostViewedRecycler();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav);
-        View headerview = navigationView.getHeaderView(0);
-        TextView aboutus = (TextView) headerview.findViewById(R.id.textView5);
-        TextView register = (TextView) headerview.findViewById(R.id.textView4);
-        TextView login = (TextView) headerview.findViewById(R.id.textView3);
         //todo principal w bestsellers click listenener
         TextView principal = (TextView) headerview.findViewById(R.id.textView7);
         TextView bestsellers = (TextView) headerview.findViewById(R.id.textView6);
@@ -145,6 +212,12 @@ public class Main2Activity extends AppCompatActivity {
         ImageView google = (ImageView) headerview.findViewById(R.id.imageView6);
         FloatingActionButton button = headerview.findViewById(R.id.floating_action_button);
 
+        bestsellers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Main2Activity.this, BestSellerActivity.class));
+            }
+        });
 
         principal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,6 +239,7 @@ public class Main2Activity extends AppCompatActivity {
                 gotoURL("https://www.facebook.com/aggricus");
             }
         });
+
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,22 +279,6 @@ public class Main2Activity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewerpage);
         loadcard();
         loadcard2();
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
 
 
         imgMenu.setOnClickListener(new View.OnClickListener() {
@@ -236,9 +294,6 @@ public class Main2Activity extends AppCompatActivity {
     private void InitializeViewsMA(){
         imgLogo =findViewById(R.id.imgLogo);
         imgMenu =findViewById(R.id.imgMenu);
-        imgLogo = findViewById(R.id.imgLogo);
-        imgLikedItems = findViewById(R.id.imgLikedItems);
-        imgBasket = findViewById(R.id.imgBasket);
         imgMenu = findViewById(R.id.imgMenu);
         btnPacks = findViewById(R.id.btnPacks);
         btnCategories = findViewById(R.id.btnCategories);
@@ -254,23 +309,32 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     private void loadcard() {
-        modelArrayList = new ArrayList<>();
-        modelArrayList.add(new MyModel("xxx", "fsdf", R.drawable.image1));
-        modelArrayList.add(new MyModel("xxx", "esgsfdsfs", R.drawable.image2));
-        modelArrayList.add(new MyModel("xsgx", "dsfs", R.drawable.image3));
-        adapter = new CardViewAdapter(this, modelArrayList);
-        viewPager.setAdapter(adapter);
-        viewPager.setPadding(60, 0, 100, 0);
+
+        modelArrayList1 = new ArrayList<>();
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.huile_d_amande,"زيت اللوز","13.00DT","النباتات العطرية و الطبية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.huile_nigelle,"زيت الحبة السوداء","12.00DT","النباتات العطرية و الطبية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.huile_sesame,"زيت الجلجلان او السمسم","11.00DT","النباتات العطرية و الطبية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.huile_jojoba,"زيت الجوجوبا","15.00DT","النباتات العطرية و الطبية"));
+        adapter2 = new CardViewAdapter2(this, modelArrayList1);
+        viewPager.setAdapter(adapter2);
+        viewPager.setPadding(40, 0, 100, 0);
     }
 
     private void loadcard2() {
-        modelArrayList = new ArrayList<>();
-        modelArrayList.add(new MyModel("piwpiwww", "20000", R.drawable.image4));
-        modelArrayList.add(new MyModel("skaaaaaaaaa3", "esgsfdsfs", R.drawable.image3));
-        modelArrayList.add(new MyModel("xsgx", "dsfs", R.drawable.image1));
-        adapter = new CardViewAdapter(this, modelArrayList);
-        viewPager2.setAdapter(adapter);
-        viewPager2.setPadding(60, 0, 100, 0);
+
+
+        modelArrayList1 = new ArrayList<>();
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.maarr_cuup,"كأس عروسة و عريس","45.00DT","صناعات يدوية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.coffreeeeeeee,"كوفريه تونسي","65.00DT","صناعات يدوية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.cup_as,"كأس حسب الطلب","45.00DT","صناعات يدوية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.spoon,"ملعقة كاب كايك","10.00DT","صناعات يدوية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.girl_cup,"كأس عروسة","45.00DT","صناعات يدوية"));
+        modelArrayList1.add(new MostViewedHelperClass(R.drawable.dabdoub_cup,"كأس دبدوب","40.00DT","صناعات يدوية"));
+        adapter2 = new CardViewAdapter2(this, modelArrayList1);
+        viewPager2.setAdapter(adapter2);
+        viewPager2.setPadding(40, 0, 100, 0);
+
+
     }
 
     private void mostViewedRecycler() {
@@ -279,10 +343,8 @@ public class Main2Activity extends AppCompatActivity {
         mostViewedRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         ArrayList<MostViewedHelperClass> mostViewedLocations = new ArrayList<>();
-        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.image2, "McDonald's", "20.000", " blaalalalallalalal"));
-        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.image1, "Edenrobe", "20.000", " blaalalalallalalal"));
-        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.image3, "J.", "20.000", " blaalalalallalalal"));
-        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.image4, "Walmart", "20.000", " blaalalalallalalal"));
+        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.babouch_khomsa, "ببوش نسائي خمسة", "40.00DT", " افضل العروض"));
+        mostViewedLocations.add(new MostViewedHelperClass(R.drawable.dabdoub_cup, "كأس دبدوب", "40.00DT", "  افضل العروض"));
 
         adapterr = new MostViewedAdpater(mostViewedLocations);
         mostViewedRecycler.setAdapter(adapterr);

@@ -2,20 +2,29 @@ package com.example.mobilejava;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -27,12 +36,13 @@ public class FormActivity extends AppCompatActivity {
     private EditText edtTxtFName, edtTxtLName , edtTxtState , edtTxtDeleg , editTxtPhone , edtTxtCompanyName , edtTxtTradeMark, edtTxtCIN, edtTxtActivity, edtTxtAdress, edtTxtCodePostal ;
     private TextView txtFName,txtLName,txtState, txtDeleg, txtPhoneNum, txtCompanyName,txtTradeMark, txtCIN, txtActivity, txtAdress, txtCodePostal, txtAgree  ;
     private CheckBox isCard ,checkAgree ;
+    private ImageView imgLogo,imgMenu;
     private Button btnRegisterForm,btnCategories;
+    private TextView aromAndMedcPlants, handyCrafts, craftProducts;
     private ConstraintLayout parent;
     private boolean isExpanded = false;
     private RelativeLayout expandableLayout;
     private RadioButton rdBtnSubs1, rdBtnSubs2, rdBtnSubs3;
-    private static final String FILE_NAME = "Form.txt";
 
 
 
@@ -41,7 +51,7 @@ public class FormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
-
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         InitializeViewsF();
 
         btnCategories.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +76,150 @@ public class FormActivity extends AppCompatActivity {
 
             }
         });
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav);
+        View headerview = navigationView.getHeaderView(0);
+        TextView aboutus = (TextView) headerview.findViewById(R.id.aboutUS);
+        TextView register = (TextView) headerview.findViewById(R.id.registertext);
+        TextView login = (TextView) headerview.findViewById(R.id.textView3);
+        TextView logout = (TextView) headerview.findViewById(R.id.logOut);
+        TextView HelloText = (TextView) headerview.findViewById(R.id.helloText);
+
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        //todo principal w bestsellers click listenener
+        TextView principal = (TextView) headerview.findViewById(R.id.textView7);
+        TextView bestsellers = (TextView) headerview.findViewById(R.id.textView6);
+        ImageView twitter = (ImageView) headerview.findViewById(R.id.imageView);
+        ImageView facebook = (ImageView) headerview.findViewById(R.id.imageView5);
+        ImageView youtube = (ImageView) headerview.findViewById(R.id.imageView8);
+        ImageView instagram = (ImageView) headerview.findViewById(R.id.imageView7);
+        ImageView google = (ImageView) headerview.findViewById(R.id.imageView6);
+        FloatingActionButton button = headerview.findViewById(R.id.floating_action_button);
+
+        if (mAuth.getInstance().getCurrentUser() != null){
+
+            register.setVisibility(View.GONE);
+            login.setVisibility(View.GONE);
+            logout.setVisibility(View.VISIBLE);
+            HelloText.setVisibility(View.VISIBLE);
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+
+            logout.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                }
+            },1000);
+
+            logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mAuth.signOut();
+                    Intent intent = new Intent(FormActivity.this , Main2Activity.class);
+                    startActivity(intent);
+
+                }
+            });
+
+        }else {
+            register.setVisibility(View.VISIBLE);
+            login.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.GONE);
+            HelloText.setVisibility(View.GONE);
+
+
+        }
+
+        principal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FormActivity.this, Main2Activity.class));
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
+
+        bestsellers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FormActivity.this, BestSellerActivity.class));
+            }
+        });
+
+
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoURL("https://www.facebook.com/aggricus");
+            }
+        });
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(FormActivity.this, AboutUsActivity.class));
+            }
+        });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FormActivity.this, RegisterUser.class));
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FormActivity.this, LogInActivity.class));
+            }
+        });
+
+        imgLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FormActivity.this, Main2Activity.class));
+            }
+        });
+
+        imgMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+
+        });
+
+        handyCrafts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FormActivity.this,HandyCarftsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        craftProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FormActivity.this,CraftProductsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        aromAndMedcPlants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FormActivity.this , AromAndMedcPlantsActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+
     }
 
     private void Register() {
@@ -175,7 +329,14 @@ public class FormActivity extends AppCompatActivity {
         return true;
     }
 
+    private void gotoURL(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+    }
+
     private void InitializeViewsF() {
+        imgLogo =findViewById(R.id.imgLogo);
+        imgMenu =findViewById(R.id.imgMenu);
         txtFName = findViewById(R.id.txtFName);
         txtLName = findViewById(R.id.txtLName);
         txtState = findViewById(R.id.txtState);
@@ -208,6 +369,9 @@ public class FormActivity extends AppCompatActivity {
         rdBtnSubs3 = findViewById(R.id.rdBtnSubs3);
         expandableLayout=findViewById(R.id.expandableLayout);
         btnCategories=findViewById(R.id.btnCategories);
+        aromAndMedcPlants=findViewById(R.id.aromAndMedcPlants);
+        handyCrafts=findViewById(R.id.handyCrafts);
+        craftProducts=findViewById(R.id.craftProducts);
 
     }
 

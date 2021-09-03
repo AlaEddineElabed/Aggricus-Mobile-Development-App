@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:background="#EEEE" >
+
+<androidx.core.widget.NestedScrollView
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,34 +21,13 @@
 
         <ImageView
             android:id="@+id/imgLogo"
-            android:layout_width="65dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imgLikedItems"
-            app:layout_constraintEnd_toStartOf="@+id/imgLikedItems"
-            app:layout_constraintHorizontal_bias="0.117"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@android:drawable/ic_delete" />
-
-        <ImageView
-            android:id="@+id/imgLikedItems"
-            android:layout_width="34dp"
-            android:layout_height="28dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imgBasket"
-            app:layout_constraintEnd_toStartOf="@+id/imgBasket"
-            app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
-
-        <ImageView
-            android:id="@+id/imgBasket"
-            android:layout_width="31dp"
-            android:layout_height="29dp"
-            android:layout_marginEnd="44dp"
+            android:layout_width="141dp"
+            android:layout_height="93dp"
+            android:layout_marginStart="28dp"
             app:layout_constraintBottom_toBottomOf="@+id/imgMenu"
-            app:layout_constraintEnd_toStartOf="@+id/imgMenu"
-            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgMenu"
+            app:srcCompat="@drawable/logo" />
 
         <ImageView
             android:id="@+id/imgMenu"
@@ -53,34 +40,11 @@
             app:srcCompat="@drawable/ic_baseline_menu_24" />
 
 
-        <EditText
-            android:id="@+id/edtSearchBar"
-            android:layout_width="319dp"
-            android:layout_height="39dp"
-            android:layout_marginTop="92dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="@string/Search"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <SearchView
-            android:layout_width="38dp"
-            android:layout_height="39dp"
-            app:layout_constraintBottom_toBottomOf="@+id/edtSearchBar"
-            app:layout_constraintEnd_toStartOf="@+id/edtSearchBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/edtSearchBar"
-            app:layout_constraintVertical_bias="0.0" />
-
         <Button
             android:id="@+id/btnPacks"
             android:layout_width="361dp"
             android:layout_height="64dp"
-            android:backgroundTint="@color/green"
+            android:backgroundTint="@color/new_green"
             android:text="@string/Btnaccueil"
             android:textColor="@color/white"
             android:textSize="17sp"
@@ -97,16 +61,17 @@
             android:id="@+id/CardView1"
             android:layout_width="361dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
+            android:background="#EEEE"
+            app:cardCornerRadius="7dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.58"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtSearchBar"
-            app:cardCornerRadius="7dp">
+            app:layout_constraintTop_toBottomOf="@+id/imgLogo">
 
             <RelativeLayout
                 android:layout_width="361dp"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <RelativeLayout
                     android:id="@+id/collapsedLayout"
@@ -117,8 +82,8 @@
                         android:id="@+id/btnCategories"
                         android:layout_width="361dp"
                         android:layout_height="51dp"
-                        android:layout_marginTop="8dp"
-                        android:backgroundTint="@color/green"
+                        android:layout_marginTop="-5dp"
+                        android:backgroundTint="@color/new_green"
                         android:drawableLeft="@drawable/ic_baseline_menu_244"
                         android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                         android:text="@string/typebtn"
@@ -165,8 +130,6 @@
             </RelativeLayout>
 
 
-
-
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -174,7 +137,7 @@
             android:layout_width="357dp"
             android:layout_height="51dp"
             android:layout_marginTop="100dp"
-            android:background="@color/green"
+            android:background="@color/new_green"
             android:text="اشتراك عادي"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -250,7 +213,7 @@
             android:id="@+id/btnRegister1"
             android:layout_width="357dp"
             android:layout_height="51dp"
-            android:backgroundTint="@color/green1"
+            android:backgroundTint="@color/new_green"
             android:text="@string/register"
             app:layout_constraintEnd_toEndOf="@+id/txt1111"
             app:layout_constraintStart_toStartOf="@+id/txt1111"
@@ -261,7 +224,7 @@
             android:layout_width="357dp"
             android:layout_height="51dp"
             android:layout_marginTop="150dp"
-            android:background="@color/green"
+            android:background="@color/new_green"
             android:text="اشتراك بريميوم"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -336,7 +299,7 @@
             android:id="@+id/btnRegister2"
             android:layout_width="357dp"
             android:layout_height="51dp"
-            android:backgroundTint="@color/green1"
+            android:backgroundTint="@color/new_green"
             android:text="@string/register"
             app:layout_constraintEnd_toEndOf="@+id/txt2222"
             app:layout_constraintStart_toStartOf="@+id/txt2222"
@@ -346,18 +309,109 @@
             android:id="@+id/btnRegister3"
             android:layout_width="357dp"
             android:layout_height="51dp"
-            android:backgroundTint="@color/green1"
+            android:backgroundTint="@color/new_green"
             android:text="@string/register"
             app:layout_constraintEnd_toEndOf="@+id/txt3333"
             app:layout_constraintStart_toStartOf="@+id/txt3333"
             app:layout_constraintTop_toBottomOf="@+id/txt3333" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister3">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="276dp"
+                android:layout_height="67dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/font_regular"
+                android:text="معلومات التوصيل"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.044"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="402dp"
+                android:layout_height="129dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/tajawal_medium"
+                android:text="  خدمة التوصيل عبر موقعنا غير متاحة حاليا.
+
+لتسلم المنتوج المطلوب اتصل بالمنتج مباشرة.                                "
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/new_green"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <TextView
+                android:layout_width="244dp"
+                android:layout_height="94dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:text="القطب التكنولوجي منوبة تونس"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="244dp"
+                android:layout_height="94dp"
+                android:layout_marginStart="132dp"
+                android:layout_marginTop="52dp"
+                android:text="contact@aggricus.com"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="244dp"
+                android:layout_height="94dp"
+                android:layout_marginStart="148dp"
+                android:layout_marginTop="100dp"
+                android:text="(216) 23 121 302"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="375dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="184dp"
+                android:text=" جميع الحقوق محفوطة.Copyright @ 2021 Aggricus"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/txtSimpleSubs3"
             android:layout_width="357dp"
             android:layout_height="51dp"
             android:layout_marginTop="150dp"
-            android:background="@color/green"
+            android:background="@color/new_green"
             android:text="اشتراك احترافي"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -432,4 +486,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+
+        />
+
+</androidx.drawerlayout.widget.DrawerLayout>

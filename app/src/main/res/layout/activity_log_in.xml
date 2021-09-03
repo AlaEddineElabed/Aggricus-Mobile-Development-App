@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#EEEE"
     android:gravity="center_horizontal">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:letterSpacing="0.03"
-        android:text="نسجيل الدخول"
+        android:text="تسجيل الدخول"
         android:paddingTop="50dp"
         android:textColor="#0d6e6a"
         android:textSize="35dp"
@@ -21,9 +22,9 @@
         android:id="@+id/editemail"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/forget"
-        android:hint="Email"
+        android:hint="البريد الالكتروني"
         android:paddingLeft="20dp"
         android:textColor="#0d6e6a"
         android:textSize="18dp"
@@ -34,32 +35,33 @@
         android:id="@+id/editpassw"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/forget"
         android:paddingLeft="20dp"
-        android:hint="Password"
+        android:hint="كلمة السر"
+        android:inputType="textPassword"
+        android:textAlignment="textEnd"
         android:textColor="#0d6e6a"
         android:textSize="18dp"
         android:textStyle="bold"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
+        android:id="@+id/goToRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="نسيت كلمة السر ؟"
+        android:text="هل ليس لديك حساب ؟ انشاء حساب"
         android:textColor="#0d6e6a"
-        android:textStyle="bold"
+        android:textStyle="italic"
         android:textSize="18dp"
-        android:paddingRight="100dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="35dp"/>
+        android:layout_marginTop="60dp"/>
 
     <Button
         android:id="@+id/btnlogin"
         android:layout_width="155dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="@color/green"
         android:text="دخول"
         android:layout_marginLeft="100dp"
@@ -67,14 +69,7 @@
         android:textSize="18dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign Up"
-        android:textColor="#0d6e6a"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_marginTop="15dp"/>
+
 
     <ProgressBar
         android:id="@+id/progressBar3"

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editemail,editpassword;
+    private TextView goToRegister;
     private Button signin ;
     private FirebaseAuth mAuth ;
     private ProgressBar progressBar ;
@@ -35,6 +37,14 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         editpassword=findViewById(R.id.editpassw);
         progressBar=findViewById(R.id.progressBar3);
         mAuth= FirebaseAuth.getInstance();
+
+        goToRegister=findViewById(R.id.goToRegister);
+        goToRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LogInActivity.this,RegisterUser.class));
+            }
+        });
     }
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -69,11 +79,11 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    startActivity(new Intent(LogInActivity.this,AboutUsActivity.class));
+                    startActivity(new Intent(LogInActivity.this,Main2Activity.class));
                     //redirect to user interface
 
                 }else {
-                    Toast.makeText(LogInActivity.this, "rzazar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogInActivity.this, "Login failed !", Toast.LENGTH_SHORT).show();
                 }
             }
         });

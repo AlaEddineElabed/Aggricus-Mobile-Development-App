@@ -6,49 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEE"
-    tools:context=".Main2Activity"
+    tools:context=".Main2Activity">
 
-    >
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_marginTop="-800dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imgLogo"
-                android:layout_width="65dp"
-                android:layout_height="64dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgLikedItems"
-                app:layout_constraintEnd_toStartOf="@+id/imgLikedItems"
-                app:layout_constraintHorizontal_bias="0.117"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@android:drawable/ic_delete" />
-
-            <ImageView
-                android:id="@+id/imgLikedItems"
-                android:layout_width="34dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgBasket"
-                app:layout_constraintEnd_toStartOf="@+id/imgBasket"
-                app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
-
-            <ImageView
-                android:id="@+id/imgBasket"
-                android:layout_width="31dp"
-                android:layout_height="29dp"
-                android:layout_marginEnd="44dp"
+                android:layout_width="141dp"
+                android:layout_height="93dp"
+                android:layout_marginStart="28dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imgMenu"
-                app:layout_constraintEnd_toStartOf="@+id/imgMenu"
-                app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgMenu"
+                app:srcCompat="@drawable/logo" />
 
             <ImageView
                 android:id="@+id/imgMenu"
@@ -61,20 +37,6 @@
                 app:srcCompat="@drawable/ic_baseline_menu_24" />
 
 
-            <EditText
-                android:id="@+id/edtSearchBar"
-                android:layout_width="319dp"
-                android:layout_height="39dp"
-                android:layout_marginTop="92dp"
-                android:layout_marginEnd="28dp"
-                android:background="@drawable/forget"
-                android:ems="10"
-                android:hint="@string/Search"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck" />
-
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="416dp"
@@ -82,6 +44,7 @@
                 android:layout_marginTop="12dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12">
 
                 <RelativeLayout
@@ -142,23 +105,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="38dp"
-                android:layout_height="39dp"
-                app:layout_constraintBottom_toBottomOf="@+id/edtSearchBar"
-                app:layout_constraintEnd_toStartOf="@+id/edtSearchBar"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/edtSearchBar"
-                app:layout_constraintVertical_bias="0.0" />
-
 
             <Button
                 android:id="@+id/btnPacks"
                 android:layout_width="361dp"
                 android:layout_height="64dp"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@color/new_green"
                 android:text="@string/Btnaccueil"
                 android:textColor="#FFFF"
                 android:textSize="17sp"
@@ -172,16 +124,18 @@
                 android:id="@+id/CardView1"
                 android:layout_width="361dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
+                android:background="#EEEE"
+                app:cardCornerRadius="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.58"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtSearchBar"
-                app:cardCornerRadius="7dp">
+                app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+                tools:ignore="MissingConstraints">
 
                 <RelativeLayout
                     android:layout_width="361dp"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <RelativeLayout
                         android:id="@+id/collapsedLayout"
@@ -192,8 +146,8 @@
                             android:id="@+id/btnCategories"
                             android:layout_width="361dp"
                             android:layout_height="51dp"
-                            android:layout_marginTop="8dp"
-                            android:backgroundTint="@color/green"
+                            android:layout_marginTop="-5dp"
+                            android:backgroundTint="@color/new_green"
                             android:drawableLeft="@drawable/ic_baseline_menu_244"
                             android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                             android:text="@string/typebtn"
@@ -240,8 +194,6 @@
                 </RelativeLayout>
 
 
-
-
             </androidx.cardview.widget.CardView>
 
 
@@ -250,8 +202,8 @@
                 android:layout_width="373dp"
                 android:layout_height="294dp"
                 android:layout_marginTop="44dp"
-                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnPacks"
                 app:sliderAnimationDuration="1100"
                 app:sliderAutoCycleDirection="back_and_forth"
@@ -288,13 +240,15 @@
                 android:id="@+id/viewerpage2"
                 android:layout_width="388dp"
                 android:layout_height="351dp"
-                android:layout_marginTop="628dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginTop="700dp"
+                android:layout_marginBottom="100dp"
                 android:clipToPadding="false"
                 android:foregroundGravity="center"
                 android:overScrollMode="never"
                 android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_slider"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -315,58 +269,58 @@
                 android:layout_width="437dp"
                 android:layout_height="1dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="816dp"
+                android:layout_marginTop="50dp"
                 app:dividerInsetEnd="16dp"
                 app:dividerInsetStart="16dp"
                 app:dividerThickness="1dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/materialDivider3"
                 android:layout_width="437dp"
                 android:layout_height="1dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="900dp"
+                android:layout_marginTop="60dp"
                 app:dividerInsetEnd="16dp"
                 app:dividerInsetStart="16dp"
                 app:dividerThickness="1dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/materialDivider2"
                 android:layout_width="437dp"
                 android:layout_height="1dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="732dp"
+                android:layout_marginTop="120dp"
                 app:dividerInsetEnd="16dp"
                 app:dividerInsetStart="16dp"
                 app:dividerThickness="1dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/image_slider" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="189dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="84dp"
                 android:text="الدفع أمن 100%"
                 android:textAlignment="center"
                 android:textSize="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="246dp"
                 android:layout_height="67dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginTop="12dp"
                 android:text="لعرض منتوجاتك على AGGRICUS اتصل 23121302 "
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView11"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <ImageView
@@ -374,9 +328,9 @@
                 android:layout_width="95dp"
                 android:layout_height="63dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="748dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView15"
                 app:srcCompat="@mipmap/ic_card_foreground" />
 
             <ImageView
@@ -384,9 +338,9 @@
                 android:layout_width="86dp"
                 android:layout_height="79dp"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="656dp"
+                android:layout_marginTop="50dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_slider"
                 app:srcCompat="@mipmap/ic_camiion_foreground" />
 
             <ImageView
@@ -397,15 +351,17 @@
                 android:layout_marginBottom="280dp"
                 app:layout_constraintBottom_toTopOf="@+id/outlinedButton"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView13"
                 app:srcCompat="@mipmap/ic_contact_foreground" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="360dp"
+                android:layout_marginTop="560dp"
                 android:background="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/outlinedButton">
 
                 <TextView
@@ -436,10 +392,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
-                android:layout_width="411dp"
+                android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="32dp"
-                android:background="@color/greenghama9"
+                android:background="@color/new_green"
                 android:paddingBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -491,7 +446,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav"

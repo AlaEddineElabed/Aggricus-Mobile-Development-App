@@ -3,9 +3,13 @@ package com.example.mobilejava;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -25,8 +29,9 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     private EditText name,pass,repass,mail;
     private Button btnRegister ;
     private ProgressBar progressBar;
-
+    private Dialog dialog;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,10 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.btnRegister:
                 registerUser();
+                break;
+            case R.id.gotosign:
+                Intent intent = new Intent(RegisterUser.this , LogInActivity.class);
+                startActivity(intent);
                 break;
                 
         }
@@ -118,8 +127,42 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(RegisterUser.this, "Registered", Toast.LENGTH_SHORT).show();
+                                dialog = new Dialog(RegisterUser.this);
+                                dialog.setContentView(R.layout.dialogue_layout);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                    dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogue_background));
+                                }
+                                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                dialog.setCancelable(false); //Optional
+                                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+
+                                Button Okay = dialog.findViewById(R.id.btn_okay);
+                                Button Cancel = dialog.findViewById(R.id.btn_cancel);
+                                dialog.show();
+
+                                Okay.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                        Intent intent = new Intent(RegisterUser.this , Main2Activity.class);
+                                        startActivity(intent);
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                                Cancel.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                        Intent intent = new Intent(RegisterUser.this , LogInActivity.class);
+                                        startActivity(intent);
+                                        dialog.dismiss();
+                                    }
+                                });
+
                                 progressBar.setVisibility(View.GONE);
+
+
                             }
                             else {
                                 Toast.makeText(RegisterUser.this, "NotRegistered", Toast.LENGTH_SHORT).show();
