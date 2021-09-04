@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editemail,editpassword;
     private TextView goToRegister;
-    private Button signin ;
+    private Button signin,btnReturn ;
     private FirebaseAuth mAuth ;
     private ProgressBar progressBar ;
 
@@ -36,6 +36,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         editemail=findViewById(R.id.editemail);
         editpassword=findViewById(R.id.editpassw);
         progressBar=findViewById(R.id.progressBar3);
+        btnReturn=findViewById(R.id.btnReturn);
         mAuth= FirebaseAuth.getInstance();
 
         goToRegister=findViewById(R.id.goToRegister);
@@ -43,6 +44,13 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LogInActivity.this,RegisterUser.class));
+            }
+        });
+
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LogInActivity.this,Main2Activity.class));
             }
         });
     }

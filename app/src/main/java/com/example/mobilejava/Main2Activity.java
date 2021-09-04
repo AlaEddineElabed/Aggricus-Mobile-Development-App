@@ -53,7 +53,6 @@ public class Main2Activity extends AppCompatActivity {
     private CardViewAdapter2 adapter2;
     RecyclerView mostViewedRecycler;
     RecyclerView.Adapter adapterr;
-    private GradientDrawable gradient1, gradient2, gradient3, gradient4;
     SliderView sliderView;
 
 

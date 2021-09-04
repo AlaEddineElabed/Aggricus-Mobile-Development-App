@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener{
     private TextView gotosign;
     private EditText name,pass,repass,mail;
-    private Button btnRegister ;
+    private Button btnRegister,btnReturn ;
     private ProgressBar progressBar;
     private Dialog dialog;
     private FirebaseAuth mAuth;
@@ -57,6 +57,14 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         gotosign.setOnClickListener(this);
 
         progressBar=findViewById(R.id.progressBar2);
+
+        btnReturn=findViewById(R.id.btnReturn);
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterUser.this, Main2Activity.class));
+            }
+        });
 
     }
 
